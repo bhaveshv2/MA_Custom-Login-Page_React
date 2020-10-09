@@ -11,3 +11,48 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.App{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 100%;
+  height: 100vh;
+  background: #637373;
+  color: #ffeadb;
+}
+
+.homepage{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.login{
+  width: 40%;
+}
+
+.login form{
+  display: flex;
+  flex-direction: column;
+}
+
+form input{
+  padding: 10px;
+  margin: 5px;
+  outline: 0;
+}
+
+button{
+  border-radius: 0;
+  width: 30%;
+  margin: 0;
+  outline: 0;
+  padding: 7px;
+  background: #ffeadb;
+  position: relative;
+  left:180px;
+  top: 10px;
+}

@@ -18,13 +18,13 @@ class Signup extends React.Component{
 
     render(){
         return(
-            <div>
+            <div className="login">
                 <h1>SignUp</h1>
                 <form onSubmit={this.handelSubmit}>
                     <input type="email" placeholder="Enter the Email" onChange={(e)=>{this.setState({email:e.target.value})}} />
                     <input type="password" placeholder="Enter the Password" onChange={(e)=>{this.setState({password:e.target.value})}} />
                     <input type="password" placeholder="Enter the above Password" onChange={(e)=>{this.setState({confirmPassword:e.target.value})}} />
-                    <input type="submit" value="SignUp"/>
+                    <button type="submit">SignUp</button>
                 </form>
             </div>            
         )

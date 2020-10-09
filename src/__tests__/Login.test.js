@@ -40,7 +40,7 @@ describe('---Login---',()=>{
             expect(state.email).to.be.equal(email);
             expect(state.password).to.be.equal(password);
         }} />);
-        wrapper.setState({email:'a@b.com',password:'Bh@123456'});
+        wrapper.setState({email:'a@a.com',password:'Bh@123456'});
         wrapper.find('button').simulate('click');
     });
 
@@ -51,7 +51,7 @@ describe('---Login---',()=>{
             expect(state.email).to.be.equal(email);
             expect(state.password).to.be.equal(password);
         }} />);
-        wrapper.setState({email:'a@b.com',password:'Bh@123456'});
+        wrapper.setState({email:'rty@trry.com',password:'h@1236'});
         wrapper.find('button').simulate('click');
     });
 });

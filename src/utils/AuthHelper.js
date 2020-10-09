@@ -1,6 +1,7 @@
 import { EventEmitter } from 'events';
 import { isTokenExpired } from './jwtDecoder';
 import auth0 from 'auth0-js';
+import jwt_decode from 'jwt-decode';
 
 class AuthHelper extends EventEmitter{
     constructor(domain,clientId){
@@ -18,9 +19,9 @@ class AuthHelper extends EventEmitter{
         localStorage.setItem('id_token',idToken);
     }
 
-    setProfile(profile){
-        localStorage.setItem('profile',JSON.stringify(profile));
-        this.emit('profile_updated',profile);
+    setProfile(id_token){
+        const decoded =jwt_decode(id_token);
+        localStorage.setItem('profile',JSON.stringify(decoded));
     }
 
     getProfile(){
@@ -44,8 +45,9 @@ class AuthHelper extends EventEmitter{
             }
 
             if(authResult && authResult.idToken && authResult.accessToken){
-                this.setToken(authResult.accessToken, authResult.idToken)
-                window.location = window.location.origin
+                this.setToken(authResult.accessToken, authResult.idToken);
+                this.setProfile(authResult.idToken);
+                window.location = window.location.origin;
             }
         })
     }
@@ -75,7 +77,7 @@ class AuthHelper extends EventEmitter{
                     if(err){
                         console.log('Error loading the profile ',err);
                     }else{
-                        this.setProfile(profile)
+                        this.setProfile(authResult.idToken);
                     }
                 })
             }
